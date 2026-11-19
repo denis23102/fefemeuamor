@@ -1,0 +1,451 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>para o meu gatinho ♡</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Caveat:wght@500;600;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #fff0f2;
+  color: #78283c;
+  font-family: 'Patrick Hand', cursive;
+  background-image: radial-gradient(#eab5c0 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.hero {
+  min-height: 90vh;
+  background: #a92f4b;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 30px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero h1 {
+  font: 700 clamp(55px, 10vw, 95px) 'Caveat', cursive;
+  margin: 15px;
+  transform: rotate(-3deg);
+}
+
+.hero p {
+  font-size: 21px;
+  max-width: 500px;
+  line-height: 1.5;
+}
+
+.hero button {
+  background: #ffe1e8;
+  color: #a92f4b;
+  border: 2px dashed white;
+  border-radius: 30px;
+  padding: 13px 25px;
+  font: 22px 'Patrick Hand';
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+.floating {
+  position: absolute;
+  animation: subir 8s linear infinite;
+  opacity: .5;
+  pointer-events: none;
+}
+
+@keyframes subir {
+  from { transform: translateY(100vh) rotate(0); }
+  to { transform: translateY(-100vh) rotate(360deg); }
+}
+
+main {
+  max-width: 850px;
+  margin: auto;
+  padding: 25px;
+}
+
+section {
+  padding: 65px 0 20px;
+}
+
+h2 {
+  font: 700 43px 'Caveat', cursive;
+  text-align: center;
+  color: #a92f4b;
+  transform: rotate(-1deg);
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 19px;
+  margin-bottom: 30px;
+}
+
+.paper {
+  background: #fffafa;
+  border: 2px dashed #e8a5b5;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 4px 5px #e9bdc7;
+  margin: 20px 0;
+  transform: rotate(-.5deg);
+}
+
+.paper:nth-child(even) {
+  transform: rotate(.7deg);
+}
+
+.photos {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.photo {
+  background: white;
+  padding: 10px 10px 15px;
+  box-shadow: 2px 4px 9px #9c526322;
+  transform: rotate(-2deg);
+  text-align: center;
+}
+
+.photo:nth-child(even) {
+  transform: rotate(2deg);
+}
+
+.photo img {
+  width: 100%;
+  height: 210px;
+  object-fit: cover;
+  display: block;
+  background: #fbdce3;
+}
+
+.photo p {
+  font: 23px 'Caveat', cursive;
+  margin: 10px 0 0;
+}
+
+.photo input {
+  display: none;
+}
+
+.upload {
+  display: inline-block;
+  margin-top: 10px;
+  background: #ffe7ec;
+  color: #a92f4b;
+  padding: 6px 13px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.writing {
+  font-size: 20px;
+  line-height: 1.7;
+  min-height: 60px;
+  outline: none;
+}
+
+.writing:focus {
+  background: #fff2f4;
+}
+
+.small-heart {
+  color: #d64d6d;
+  font-size: 25px;
+}
+
+.timeline {
+  border-left: 3px dashed #dc8b9e;
+  padding-left: 25px;
+  margin-left: 15px;
+}
+
+.timeline-item {
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.timeline-item::before {
+  content: '♥';
+  position: absolute;
+  left: -39px;
+  color: #c43e5c;
+  font-size: 23px;
+}
+
+.timeline-item h3 {
+  font: 27px 'Caveat', cursive;
+  margin-bottom: 5px;
+}
+
+button {
+  font-family: 'Patrick Hand', cursive;
+}
+
+.choice {
+  background: #ffe3e9;
+  border: 1px solid #e8a5b5;
+  border-radius: 25px;
+  padding: 12px 18px;
+  font-size: 18px;
+  color: #8c2840;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.choice:hover {
+  background: #c94b69;
+  color: white;
+}
+
+.answer {
+  font-size: 22px;
+  margin-top: 20px;
+  color: #b33654;
+}
+
+.letter {
+  display: none;
+  line-height: 1.8;
+  font-size: 21px;
+  white-space: pre-line;
+}
+
+.letter.show {
+  display: block;
+}
+
+.open {
+  display: block;
+  margin: 15px auto;
+  padding: 12px 25px;
+  background: #b63856;
+  color: white;
+  border: 2px dashed #fff0f2;
+  border-radius: 30px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+footer {
+  text-align: center;
+  background: #a92f4b;
+  color: white;
+  padding: 35px 15px;
+  font: 28px 'Caveat', cursive;
+}
+
+@media(max-width: 550px) {
+  .photos {
+    grid-template-columns: 1fr;
+  }
+
+  h2 {
+    font-size: 36px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header class="hero">
+  <div style="font-size:20px">♡ fiz esse site pra vc ♡</div>
+  <h1>oiii, meu príncipe!!</h1>
+  <p>
+    Espero que goste meu lindinho, vai passando para baixo para ver tudo ❤️
+  </p>
+  <button onclick="document.getElementById('fotos').scrollIntoView()">
+    vem ver!! ♡
+  </button>
+  <div style="margin-top:45px">feito com muito carinho do seu amorzinho Denis</div>
+</header>
+
+<main>
+
+<section id="fotos">
+  <h2>algumas fotinhas nossas ♡</h2>
+  <p class="subtitle">
+sei que temos poucas ainda, mas vamos tirar infinitas fotos ainda!  </p>
+
+  <div class="photos">
+
+    <div class="photo">
+      <img src="meulindinho.jpeg" alt="meulindinho.jp" id="meulindinho.jpeg">
+      <label class="upload">
+        nossa primeira foto juntos, eu te amo
+        <input type="file" accept="image/*" onchange="addFoto(event,'foto1')">
+      </label>
+      <p contenteditable="true">♡</p>
+    </div>
+
+    <div class="photo">
+      <img src="cinema.jpeg" alt="cinema" id="foto2">
+      <label class="upload">
+        cinema com meu gatinho, foi perfeito mds
+        <input type="file" accept="image/*" onchange="addFoto(event,'foto2')">
+      </label>
+      <p contenteditable="true"> ♡</p>
+    </div>
+
+    <div class="photo">
+      <img src="teamo.jpeg" alt="" id="foto3">
+      <label class="upload">
+        eu amo essa foto pqp
+        <input type="file" accept="image/*" onchange="addFoto(event,'foto3')">
+      </label>
+      <p contenteditable="true">♡</p>
+    </div>
+
+    <div class="photo">
+      <img src="roblox.jpeg" alt="" id="foto4">
+      <label class="upload">
+        a gntt jogando roblox, eu amo isso♡
+        <input type="file" accept="image/*" onchange="addFoto(event,'foto4')">
+      </label>
+      <p contenteditable="true">♡</p>
+    </div>
+
+  </div>
+</section>
+
+<section>
+  <h2>como eu vejo você...</h2>
+  <p class="subtitle">
+    algumas coisinhas que talvez eu não fale tanto.
+  </p>
+
+  <div class="paper">
+    <div class="small-heart">♡</div>
+    <h3> admiro em você</h3>
+    <p class="writing" contenteditable="true">
+vc por completo meu príncipe, sua inteligência emocional, seu carinho, sua presença, seu rostinho e corpo lindo, sua voz, seus olhos, sua boca e sua reciprocidade. Eu admiro
+vc por inteiro, a abertura que vc me dá para ser quem eu sou, a forma como vc pensa e enxerga o mundo e futuro, sua compreensão e a forma como vc demonstra carinho, sua personalidade, seu jeitinho e tudo, seja quem vc é de verdade cmg♡    </p>
+  </div>
+
+  <div class="paper">
+    <div class="small-heart">♡</div>
+    <h3> você me faz sentir</h3>
+    <p class="writing" contenteditable="true">
+Me sinto muito livre com vc, para falar muitas coisas, inclusive isso é outra coisa que eu admiro muito em você, sua capacidade de conversar sobre qualquer assunto de forma 
+inteligente. Vc me faz sentir leve com tudo, feliz quando recebo mensagens ou ligações suas, videozinhos no instagram também rs. Vc me deixa com um sorriso quando penso ou 
+falo sobre você, e tbm me deixa com vontade de passar muito tempo ao seu lado. Vc me faz sentir uma sensação muito gostosinha de verdade gatinho   </p>
+  </div>
+
+  <div class="paper">
+    <div class="small-heart">♡</div>
+    <h3> amo no seu jeitinho</h3>
+    <p class="writing" contenteditable="true">
+Já disse que amo o seu jeitinho e vc por completo, mas amo seu jeito de falar e de se expressar, vc é muito claro com tudo. Amo seus draminhas e brincadeiras, nunca pare pfv. 
+Amo a empolgação que vc fala sobre coisas que vc gosta tipo artistas e essas coisas, gosto de ver esse seu lado fofo seu. Amo todo o seu jeitinho, o jeito como vc demonstra carinho, e o principal, eu amo vc♡    </p>
+  </div>
+
+  <div class="paper">
+    <div class="small-heart">♡</div>
+    <h3> espero de nós</h3>
+    <p class="writing" contenteditable="true">
+Espero que a gente cresça cada vez mais juntos e sem precisar apressar nada. eu quero muito aproveitar cada etapa, conhecer cada parte sua, acompanhar suas mudanças, seus sonhos e suas conquistas, e te apoiar em tudo tbm meu amor. Quero que a gente construa algo bonito, com muito carinho, respeito,
+ e intensidade ne rs. Ah e o principal, nos casar, construir nossa família e ter nossos 7 filhos (gatos obviamente KKKKK). Espero que esse seja o inicio de uma fase muito linda bb </p>
+  </div>
+</section>
+
+<section>
+  <h2> lembrancinhas ♡</h2>
+  <p class="subtitle">
+eu te amo meu anjinhoooo  </p>
+
+  <div class="paper timeline">
+
+    <div class="timeline-item">
+      <h3> começou...</h3>
+      <p contenteditable="true">
+31/10 primeira conversa, old né amém que vc me mandou mensagem - 13.11 primeira vez que nos vimos (e agr 20/11 espero que esteja lendo isso ao meu lado no parque)      </p>
+    </div>
+
+    <div class="timeline-item">
+      <h3> gostei muito</h3>
+      <p contenteditable="true">
+a gente com a fini no cinema KKKKKKKKKK e eu no seu colo todo manhoso   </p>
+    </div>
+
+    <div class="timeline-item">
+      <h3> quero repetir</h3>
+      <p contenteditable="true">
+Tudo com vc, quero estar sempre ao seu lado gatinho      </p>
+    </div>
+
+    
+
+  </div>
+</section>
+
+<section>
+  <h2>uma pergunta pra vc meu bb</h2>
+  <p class="subtitle">
+  </p>
+
+  <div class="paper" style="text-align:center">
+    <h3>Nossos futuros dates (vc decide o próximo)</h3>
+
+    <button class="choice" onclick="responder(1)">
+      tour em guararema 🌷
+    </button>
+
+    <button class="choice" onclick="responder(2)">
+      tour em são paulo ❤️
+    </button>
+
+    <button class="choice" onclick="responder(3)">
+qualquer lugar estando com vc vai ser perfeito❤️    </button>
+
+    <div class="answer" id="resposta">
+      escolha uma opção
+    </div>
+  </div>
+</section>
+
+
+<p style="font-size:22px; line-height:1.7; text-align:center;">
+  e para finalizar, também fiz essa playlist com músicas que só consigo pensar em você quando escuto meu amor. 🎧
+</p>
+
+<div style="text-align:center;">
+  <a href="https://open.spotify.com/playlist/35PeqEe6NuAB3RCtM0F4DZ?si=I23tnV_dQOe1ZSwWp9INlA"
+  target="_blank"
+  style="display:inline-block;
+  background:#ffe1e8;
+  color:#a92f4b;
+  padding:12px 20px;
+  border-radius:25px;
+  border:2px dashed #e8a5b5;
+  text-decoration:none;
+  margin:15px 0;
+  font-family:'Patrick Hand', cursive;
+  font-size:22px;">
+  🎧 clique aqui ♡
+  </a>
+</div>
+
+<p style="font-size:22px; line-height:1.7; text-align:center;">
+  com carinho, de Denis para Felipe.<br>
+  Eu te amooooooooooo ❤️
+</p>
+
+</body>
+</html>
